@@ -9,18 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "5.7.1",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.2",
+    "jsonwebtoken": "^9.0.2",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "@types/bootstrap": "^5.2.10",
+    "@types/jsonwebtoken": "^9.0.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
+    "prisma": "^5.7.1",
     "typescript": "^5"
   }
 }
