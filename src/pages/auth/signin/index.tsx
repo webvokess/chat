@@ -1,9 +1,12 @@
 import React from 'react'
 
+
+
 const Signin = () => {
     return (
-        <div>
+        <div className='bg-dark ml-10'>
             signin
+            <button className="btn btn-primary">Button</button>
         </div>
     )
 }
