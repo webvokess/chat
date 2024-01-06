@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  email    String   @unique
+  name     String
+  phone    String   @unique
+  password String
+  photo    String?
+  groups   Group[]  @relation(fields: [groupIds], references: [id])
+  groupIds String[] @db.ObjectId
+  sent     Chat[]   @relation("SentChats")
+  recieved Chat[]   @relation("RecievedChats")
+}
+
+model Group {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  users   User[]   @relation(fields: [userIds], references: [id])
+  userIds String[] @db.ObjectId
+  chats   Chat[]
+}
+
+model Chat {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  sender     User     @relation(name: "SentChats", fields: [senderId], references: [id])
+  senderId   String   @db.ObjectId
+  reciever   User?    @relation(name: "RecievedChats", fields: [recieverId], references: [id])
+  recieverId String?  @db.ObjectId
+  group      Group?   @relation(fields: [groupId], references: [id])
+  groupId    String?  @db.ObjectId
+  message    String
+  createdAt  DateTime @default(now())
+}
