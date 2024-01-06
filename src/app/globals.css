@@ -1,0 +1,77 @@
+.main-bg {
+    background-color: #9646dd;
+    color: #fff; /* Set text color to contrast with the background */
+  }
+  
+  .secondary-bg {
+    background-color: #e9d3fd;
+    color: #000; /* Set text color to contrast with the background */
+  }
+
+  .light-bg{
+    background-color: #f8f6f8;
+    color: #000; /* Set text color to contrast with the background */
+  }
+
+  
+.custom-col-0-5 {
+    flex: 0 0 4%;
+    max-width: 4%;
+  }
+  
+  .custom-col-3-5 {
+    flex: 0 0 26%;
+    max-width: 26%;
+  }
+
+  .custom-col-8 {
+    flex: 0 0 70%;
+    max-width: 70%;
+  }
+
+  .hamburgerItems{
+    border:none;
+    border-radius: 10px;
+    background-color:#f8f6f8 ;
+    color:#bbb9bb
+  }
+
+  .hamburgerItems:hover{
+    background-color:#e9d3fd;
+    color: #9646dd;
+  }
+  body{
+    overflow-x: hidden;
+  }
+
+  .loginDiv{
+    
+      background-image: url('/assets/loginPage.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh; /* Set the height of your div */
+      width: 100vw;
+    
+      /* You can also specify other styles for your div, such as padding, border, etc. */
+    
+  }
+  
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+  }
