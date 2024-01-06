@@ -17,7 +17,10 @@ const POST = async (
     });
     console.log(user);
 
-    if (!user) res.status(404).send({ message: "User Not found" });
+    if (!user) {
+      res.status(404).send({ message: "User Not found" });
+      return;
+    }
 
     let passwordIsValid = bcrypt.compareSync(input.password, user!.password);
 
@@ -26,7 +29,11 @@ const POST = async (
     const token =
       "Bearer " + jwt.sign({ id: user!.id }, process.env.JWT_SECRET as string);
     console.log(token);
-    cookies().set("token", token);
+    res.setHeader(
+      "Set-Cookie",
+      `token=${token}; HttpOnly; Path=/; Max-Age=2592000`
+    );
+
     res.status(200).send({ message: "Successfully Logged in", token: token });
     return;
   } catch (error: any) {

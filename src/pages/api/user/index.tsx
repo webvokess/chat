@@ -10,13 +10,17 @@ const GET = async (
     try {
         const token = req.cookies["token"]
         console.log("token", token);
+
         if (!token) throw new Error("Unauthorized")
-        const jwtPayload = jwt.decode(token) as JwtPayload
+        console.log(token.split(" ")[1])
+        const jwtPayload = jwt.decode(token.split(" ")[1]) as JwtPayload
         console.log(jwtPayload);
+
         let id = "";
         if (jwtPayload && jwtPayload.id) id = jwtPayload.id;
-        let user = await prisma.user.findFirst({ where: { id } });
-        if (user) res.status(200).send(user);
+        let user = await prisma.user.findUnique({ where: { id } });
+
+        if (user) { res.status(200).send({ ...user, password: undefined }); }
         else throw new Error("User Not Found");
     } catch (error: any) {
         console.log(error);

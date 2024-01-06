@@ -14,9 +14,13 @@ const POST = async (
   try {
     let check = await prisma.user.findFirst({ where: { email: input.email } });
 
-    if (check) res.status(404).send({ message: "User Already Exists" });
-
+    if (check) {
+      res.status(404).send({ message: "User Already Exists" });
+      return;
+    }
     const hash = bcrypt.hashSync(input.password, 10);
+    console.log(input, hash);
+
     const newUser = await prisma.user.create({
       data: {
         ...input,
@@ -27,10 +31,15 @@ const POST = async (
     const token =
       "Bearer " +
       jwt.sign({ id: newUser.id }, process.env.JWT_SECRET as string);
+    console.log(token);
 
-    cookies().set("token", token);
+    res.setHeader(
+      "Set-Cookie",
+      `token=${token}; HttpOnly; Path=/; Max-Age=2592000`
+    );
 
     res.status(200).send({ message: "Signed up successfully" });
+    return;
   } catch (error: any) {
     console.log(error);
     res.status(500).send({ message: error.message });
