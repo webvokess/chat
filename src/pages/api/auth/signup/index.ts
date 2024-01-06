@@ -3,6 +3,7 @@ import { AuthResponse } from "../dto/auth.output";
 import prisma from "@/prisma";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { cookies } from "next/headers";
 
 const POST = async (
   req: NextApiRequest,
@@ -27,7 +28,9 @@ const POST = async (
       "Bearer " +
       jwt.sign({ id: newUser.id }, process.env.JWT_SECRET as string);
 
-    res.status(200).send({ message: "Signed up successfully", token: token });
+    cookies().set("token", token);
+
+    res.status(200).send({ message: "Signed up successfully" });
   } catch (error: any) {
     console.log(error);
     res.status(500).send({ message: error.message });
