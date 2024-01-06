@@ -2,6 +2,7 @@ import React from 'react'
 import Hamburger from './components/hamburger'
 import Profile from './components/profile'
 import ChatsList from './components/Contacts/chatsList'
+import Chats from './components/chats'
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
           <div ><ChatsList/></div>
         </div>
         <div className="custom-col-8 light-bg">
-          <p>Column 3</p>
+          <div><Chats/></div>
         </div>
       </div>
     </div>

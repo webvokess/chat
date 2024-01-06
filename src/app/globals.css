@@ -13,6 +13,10 @@
     color: #000; /* Set text color to contrast with the background */
   }
 
+  .light-green-bg{
+    background-color: #cefddd;
+  }
+
   
 .custom-col-0-5 {
     flex: 0 0 4%;
