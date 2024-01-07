@@ -1,11 +1,12 @@
-import Image from 'next/image'
-import styles from './page.module.css'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
-import Home from '@/pages/home'
+import HomePage from '@/pages/home'
+import 'bootstrap/dist/css/bootstrap.css'
+import "./globals.css"
 
-export default function HomePage() {
+export default function Home() {
   const cookie = cookies().get("token")
+  console.log('hereeee')
   if (!cookie) return redirect("/auth/signin")
-  return <Home />
+  return <HomePage />
 }
