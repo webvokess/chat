@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Message from './messages';
 
 export default function Chats() {
+  const [message,setMessage]=useState("");
   return (
     <>
       <div className='rounded-5 mt-2 p-3 d-flex flex-column '>
@@ -17,33 +19,41 @@ export default function Chats() {
       </div>
 
       <hr />
-      <div className="overflow-y-auto" style={{ maxHeight: "80vh" }}>
-        <div className='container-fluid d-flex'>
-          <div className='rounded-circle row-1 justify-content-center' style={{
-            width: '65px', height: '65px', backgroundImage: 'url(https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D)', backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}></div>
-          <div className='border rounded-5 p-3 bg-white mx-2' style={{ width: '35vw', minHeight: '10vh', fontSize: '18px' }}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa quae, placeat iste dolor exercitationem recusandae facilis deserunt veritatis odit saepe? Consequatur vel minima tempora! Blanditiis nam, doloribus omnis temporibus sint maxime ab optio, accusantium voluptates nesciunt animi obcaecati nostrum cupiditate aut saepe nihil corporis. Quas id necessitatibus fugiat dignissimos reprehenderit.
-          </div>
-        </div>
-        <div className='container-fluid d-flex' style={{ justifyContent: "flex-end" }}>
-          <div className='border light-green-bg rounded-5 p-3 mx-2 mt-2' style={{ width: '35vw', minHeight: '10vh', fontSize: '18px', alignSelf: "flex-end" }}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa quae, placeat iste dolor exercitationem recusandae facilis deserunt veritatis odit saepe? Consequatur vel minima tempora! Blanditiis nam, doloribus omnis temporibus sint maxime ab optio, accusantium voluptates nesciunt animi obcaecati nostrum cupiditate aut saepe nihil corporis. Quas id necessitatibus fugiat dignissimos reprehenderit.
-          </div>
-        </div>
-        <div className='container-fluid d-flex'>
-          <div className='rounded-circle row-1 justify-content-center' style={{
-            width: '65px', height: '65px', backgroundImage: 'url(https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D)', backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}></div>
-          <div className='border rounded-5 p-3 bg-white mx-2' style={{ width: '35vw', minHeight: '10vh', fontSize: '18px' }}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa quae, placeat iste dolor exercitationem recusandae facilis deserunt veritatis odit saepe? Consequatur vel minima tempora! Blanditiis nam, doloribus omnis temporibus sint maxime ab optio, accusantium voluptates nesciunt animi obcaecati nostrum cupiditate aut saepe nihil corporis. Quas id necessitatibus fugiat dignissimos reprehenderit.
-          </div>
+      {/* messages  */}
+      <div className="overflow-y-auto" style={{ maxHeight: "80vh",  height:'80vh'}}>
+        <Message message={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi libero inventore nostrum, necessitatibus error doloribus dolore qui fugit eaque pariatur hic aliquid numquam ipsum ut? Repellendus natus rerum veritatis temporibus consequatur, ipsam, placeat quaerat magni facere iusto aliquid ratione consectetur.'} timeStamp='10:30 pm'/>
+
+        <Message message={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi libero inventore nostrum, necessitatibus error doloribus dolore qui fugit eaque pariatur hic aliquid numquam ipsum ut? Repellendus natus rerum veritatis temporibus consequatur, ipsam, placeat quaerat magni facere iusto aliquid ratione consectetur.'} timeStamp='10:30 pm' avatar='url(https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D)'/>
+
+        <Message message={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi libero inventore nostrum, necessitatibus error doloribus dolore qui fugit eaque pariatur hic aliquid numquam ipsum ut? Repellendus natus rerum veritatis temporibus consequatur, ipsam, placeat quaerat magni facere iusto aliquid ratione consectetur.'} timeStamp='10:30 pm'/>
+
+        <Message message={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi libero inventore nostrum, necessitatibus error doloribus dolore qui fugit eaque pariatur hic aliquid numquam ipsum ut? Repellendus natus rerum veritatis temporibus consequatur, ipsam, placeat quaerat magni facere iusto aliquid ratione consectetur.'} timeStamp='10:30 pm' avatar='url(https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D)'/>
+
+
+        <Message message={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi libero inventore nostrum, necessitatibus error doloribus dolore qui fugit eaque pariatur hic aliquid numquam ipsum ut? Repellendus natus rerum veritatis temporibus consequatur, ipsam, placeat quaerat magni facere iusto aliquid ratione consectetur.'} timeStamp='10:30 pm'/>
+
+        <Message message={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi libero inventore nostrum, necessitatibus error doloribus dolore qui fugit eaque pariatur hic aliquid numquam ipsum ut? Repellendus natus rerum veritatis temporibus consequatur, ipsam, placeat quaerat magni facere iusto aliquid ratione consectetur.'} timeStamp='10:30 pm' avatar='url(https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D)'/>
+      </div>
+
+      
+      {/* input  */}
+      <div className="container-fluid">
+          <div className="input-group input-group-lg shadow p-1 bg-body-tertiary rounded-4">
+          <input type="text" className="form-control chatInput" placeholder='Type Here' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"/>
+          {/* button  */}
+          <button className="btn d-flex main-bg rounded-3 m-2">
+            <div className='m-1'>
+              Send
+            </div>
+          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-send m-1 " width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M10 14l11 -11"></path>
+                    <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5"></path>
+                    </svg>
+          </button >
         </div>
       </div>
+
 
 
     </>
