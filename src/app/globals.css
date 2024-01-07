@@ -54,11 +54,8 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      height: 100vh; /* Set the height of your div */
+      height: 100vh; 
       width: 100vw;
-    
-      /* You can also specify other styles for your div, such as padding, border, etc. */
-    
   }
   
   ::-webkit-scrollbar {
