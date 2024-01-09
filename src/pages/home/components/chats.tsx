@@ -39,7 +39,7 @@ export default function Chats() {
       {/* input  */}
       <div className="container-fluid">
           <div className="input-group input-group-lg shadow p-1 bg-body-tertiary rounded-4">
-          <input type="text" className="form-control chatInput" placeholder='Type Here' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"/>
+          <input type="text" value={message} onChange={(e)=>{setMessage(e.target.value)}} className="form-control chatInput" placeholder='Type Here' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"/>
           {/* button  */}
           <button className="btn d-flex main-bg rounded-3 m-2">
             <div className='m-1'>
