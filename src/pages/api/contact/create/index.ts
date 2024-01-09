@@ -1,8 +1,9 @@
 import prisma from "@/prisma";
+import { Contact } from "@prisma/client";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
 
-const POST = async (req: NextApiRequest, res: NextApiResponse<boolean>) => {
+const POST = async (req: NextApiRequest, res: NextApiResponse<Contact>) => {
   let input = req.body;
 
   try {
@@ -13,13 +14,20 @@ const POST = async (req: NextApiRequest, res: NextApiResponse<boolean>) => {
     console.log(jwtPayload);
     let contact = await prisma.contact.create({
       data: {
-        savedForId: input.savedForId,
+        email: input.email,
+        name: input.name,
+        savedFor: {
+          connect: {
+            id: jwtPayload.id,
+          },
+        },
       },
     });
-    return !!contact;
+    res.send(contact);
+    return contact;
   } catch (error: any) {
     console.log(error);
-    res.status(500).send(false);
+    throw new Error("Something went wrong");
   }
 };
 

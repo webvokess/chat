@@ -1,32 +1,37 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import axios from "axios";
+import { createContext, useContext, useEffect, useState } from "react";
 
 
-interface userData{
-    name:string,
-    email:string,
-    chatId:string,
+interface userData {
+    name: string,
+    email: string,
+    chatId: string,
+    savedContacts: { name: string, email: string, id: string }[]
 }
-const AppContext=createContext<any>(undefined);
+const UserContext = createContext<any>(undefined);
 
-export function AppWrapper({children}:{
-    children:React.ReactNode;
-}){
-    let [user,setUser]=useState<userData>(
-        {
-            name:'Harsh',
-            email:'harshtrivs@gmail.com',
-            chatId:'12udnjfshdjismd',
-        }
-    );
+export function UserWrapper({ children }: {
+    children: React.ReactNode;
+}) {
+    let [user, setUser] = useState<userData>({
+        name: "",
+        email: "",
+        chatId: "",
+        savedContacts: []
+    });
+
+    useEffect(() => {
+        axios.get("/api/user/getMe").then((data) => setUser(data.data))
+    }, [])
     return (
-        <AppContext.Provider value={{user,setUser}}>
+        <UserContext.Provider value={{ user, setUser }}>
             {children}
-        </AppContext.Provider>
+        </UserContext.Provider>
     )
 }
 
-export function useAppContext(){
-    return useContext(AppContext);
+export function useUserContext() {
+    return useContext(UserContext);
 }

@@ -18,7 +18,9 @@ const GET = async (
 
         let id = "";
         if (jwtPayload && jwtPayload.id) id = jwtPayload.id;
-        let user = await prisma.user.findUnique({ where: { id } });
+        let user = await prisma.user.findUnique({ where: { id }, include: { savedContacts: true } });
+        console.log(user)
+
 
         if (user) { res.status(200).send({ ...user, password: undefined }); }
         else throw new Error("User Not Found");

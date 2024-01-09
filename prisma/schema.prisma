@@ -21,13 +21,15 @@ model User {
   groupIds      String[]  @db.ObjectId
   sent          Chat[]    @relation("SentChats")
   recieved      Chat[]    @relation("RecievedChats")
-  savedContacts Contact[] 
+  savedContacts Contact[]
 }
 
 model Contact {
   id         String @id @default(auto()) @map("_id") @db.ObjectId
   savedFor   User   @relation(fields: [savedForId], references: [id])
   savedForId String @db.ObjectId
+  email      String @unique
+  name       String
 }
 
 model Group {
