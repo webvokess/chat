@@ -1,41 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## **Chat Web App Documentation**
 
-## Getting Started
+Welcome to the documentation for our Chat Web App! This web application is built using Next.js and provides a real-time chat experience with several features, including JWT token sign-in, one-to-one chatting, group chats, and support for sending and receiving images within chat messages.
+---
 
-First, run the development server:
+### **1. Getting Started**
+
+### Prerequisites
+
+Before running the Chat Web App, ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+
+### Installation
+
+Clone the repository and install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bashCopy code
+git clone https://github.com/RasagnyaG/chat.git
+cd chat-web-app
+npm install
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Running the App
 
-There are multiple routes for different pages created in project
+Start the development server:
 
-sign up /auth/signup                                      
+```bash
+bashCopy code
+npm run dev
 
-sign in /auth/signin
+```
 
-home(dashboard) /home
+Visit http://localhost:3000 in your browser to access the Chat Web App.
 
-home route is protected and only works when sign in is done.
+### **2. Authentication**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### JWT Token Sign-In
 
-## Learn More
+Our Chat Web App utilizes JSON Web Tokens (JWT) for user authentication. Users can sign in using their credentials, and upon successful authentication, a JWT token is generated and used to secure subsequent API requests.
 
-To learn more about Next.js, take a look at the following resources:
+### **3. Chat Features**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### One-to-One Chatting
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Users can initiate one-to-one chats by selecting a contact from their friends' list. Real-time messages are exchanged, creating a seamless and interactive chatting experience.
+
+### Group Chats
+
+Group chats allow users to create and participate in conversations with multiple members. Users can add or remove participants, and messages sent to the group are delivered to all members in real-time.
+
+### Image Support
+
+Our Chat Web App supports the sharing of images within chat messages. Users can upload and view images directly in the chat interface, enhancing the communication experience.
+
+### **4. Development**
+
+### Folder Structure
+
+The project follows a standard Next.js folder structure. Key folders include:
+
+- **`pages`**: Contains the main pages of the application.
+- **`components`**: Reusable React components.
+- **`api`**: Serverless functions for handling API requests.
+
+### API Endpoints
+
+The Chat Web App relies on serverless functions to manage API endpoints. These endpoints handle user authentication, message retrieval, and group management.
+
+### WebSocket Integration
+
+Real-time communication is facilitated through WebSocket integration. The app uses WebSocket connections to instantly transmit messages between users, ensuring a responsive chat experience.
 
 ## Deploy on Vercel
 
