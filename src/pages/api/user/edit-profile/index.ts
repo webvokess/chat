@@ -3,7 +3,7 @@ import jwt, { JwtPayload } from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
 import bcrypt from "bcryptjs";
 
-const POST = async (req: NextApiRequest, res: NextApiResponse<boolean>) => {
+const POST = async (req: NextApiRequest, res: NextApiResponse<any>) => {
   let input = req.body;
 
   try {
@@ -19,14 +19,17 @@ const POST = async (req: NextApiRequest, res: NextApiResponse<boolean>) => {
       const hash = bcrypt.hashSync(input.password, 10);
       input.password = hash;
     }
-
+    const filteredInput = Object.fromEntries(
+      Object.entries(input).filter(([_, value]) => value !== "")
+    );
+    console.log(filteredInput);
     let user = await prisma.user.update({
       where: { id },
       data: {
-        ...input,
+        ...filteredInput,
       },
     });
-    return !!user;
+    res.status(200).send(user);
   } catch (error: any) {
     console.log(error);
     res.status(500).send(false);
