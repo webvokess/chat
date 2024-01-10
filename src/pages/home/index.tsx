@@ -1,10 +1,14 @@
-import React from 'react'
+"use client"
+import React, { useEffect } from 'react'
 import Hamburger from './components/hamburger'
 import Profile from './components/profile'
 import ChatsList from './components/Contacts/chatsList'
 import Chats from './components/chats'
 
+
+
 export default function HomePage() {
+
   return (
     <>
       <div className="container-fluid" style={{ height: '100%' }}>
@@ -19,6 +23,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
     </>
   )
 }

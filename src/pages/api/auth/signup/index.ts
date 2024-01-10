@@ -5,10 +5,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 
-const POST = async (
-  req: NextApiRequest,
-  res: NextApiResponse<AuthResponse>
-) => {
+const POST = async (req: NextApiRequest, res: NextApiResponse<any>) => {
   let input = req.body;
 
   try {
@@ -38,7 +35,7 @@ const POST = async (
       `token=${token}; HttpOnly; Path=/; Max-Age=2592000`
     );
 
-    res.status(200).send({ message: "Signed up successfully" });
+    res.status(200).send({ ...newUser, password: undefined });
     return;
   } catch (error: any) {
     console.log(error);

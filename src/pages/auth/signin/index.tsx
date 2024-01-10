@@ -1,6 +1,8 @@
+
 import Error from '@/components/error';
+import { useUserContext } from '@/context/context';
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 import React, { useState } from 'react'
 
@@ -10,20 +12,24 @@ const Signin = () => {
     const [password, setPassword] = useState('')
     const [error, setError] = useState<string>()
 
-    const navigator = useRouter()
+    const { fetchUser } = useUserContext()
+
+    const router = useRouter()
+
 
     const handleSubmit = async (e: any) => {
         console.log('clicked')
         e.preventDefault();
 
         try {
-            await axios.post("/api/auth/signin", {
+            let res = await axios.post("/api/auth/signin", {
                 email,
                 password
             })
-            navigator.push("/")
-        } catch (error: any) {
 
+            router.push("/")
+        } catch (error: any) {
+            console.log(error)
             setError(error)
         }
     }

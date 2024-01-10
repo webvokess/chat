@@ -4,11 +4,9 @@ import prisma from "@/prisma";
 import { AuthResponse } from "../dto/auth.output";
 import bcrypt from "bcryptjs";
 import { cookies } from "next/headers";
+import { User } from "@prisma/client";
 
-const POST = async (
-  req: NextApiRequest,
-  res: NextApiResponse<AuthResponse>
-) => {
+const POST = async (req: NextApiRequest, res: NextApiResponse<any>) => {
   let input = req.body;
   console.log("here");
   try {
@@ -33,8 +31,7 @@ const POST = async (
       "Set-Cookie",
       `token=${token}; HttpOnly; Path=/; Max-Age=2592000`
     );
-
-    res.status(200).send({ message: "Successfully Logged in", token: token });
+    res.status(200).send({ ...user, password: undefined });
     return;
   } catch (error: any) {
     console.log(error);

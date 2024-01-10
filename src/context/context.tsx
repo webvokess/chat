@@ -10,7 +10,7 @@ interface userData {
     chatId: string,
     savedContacts: { name: string, email: string, id: string }[]
 }
-const UserContext = createContext<any>(undefined);
+const UserContext = createContext<any>({});
 
 export function UserWrapper({ children }: {
     children: React.ReactNode;
@@ -21,9 +21,18 @@ export function UserWrapper({ children }: {
         chatId: "",
         savedContacts: []
     });
+    const fetchUser = async () => {
+        console.log('here')
+        axios.get("/api/user/getMe").then((data) => setUser(data.data)).catch((e) => setUser({
+            name: "",
+            email: "",
+            chatId: "",
+            savedContacts: []
+        }))
+    }
 
     useEffect(() => {
-        axios.get("/api/user/getMe").then((data) => setUser(data.data))
+        fetchUser()
     }, [])
     return (
         <UserContext.Provider value={{ user, setUser }}>

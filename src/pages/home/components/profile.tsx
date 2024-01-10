@@ -1,3 +1,4 @@
+'use client'
 import { useUserContext } from '@/context/context'
 import React, { useState } from 'react'
 import AddContactPopup from './popup';
@@ -5,6 +6,7 @@ import AddContactPopup from './popup';
 export default function Profile() {
   const { user, setUser } = useUserContext()
   const [showPopup, setShowPopup] = useState(false);
+  console.log(user)
 
   const setContacts = (contact: any) => {
     let contacts = user.savedContacts;
