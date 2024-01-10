@@ -42,8 +42,14 @@
 
   .hamburgerItems:hover{
     background-color:#e9d3fd;
+    color: #d0b9e4;
+  }
+
+  .hamburgerItems:focus{
+    background-color:#e9d3fd;
     color: #9646dd;
   }
+
   body{
     overflow-x: hidden;
   }

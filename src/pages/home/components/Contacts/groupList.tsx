@@ -4,7 +4,7 @@ import ChatCard from './chatCard'
 import { useUserContext } from '@/context/context';
 import AddContactPopup from '../contactpopup';
 
-export default function ChatsList() {
+export default function Groups() {
   const { user, setUser } = useUserContext()
   const [showContactPopup, setShowContactPopup] = useState(false);
 
@@ -20,7 +20,7 @@ export default function ChatsList() {
     }
     <div className='d-flex text-dark justify-content-between'>
         <div className='fs-3'>
-          Chats
+          Groups
         </div>
 
         {/* new chats icon  */}
