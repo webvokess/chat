@@ -3,12 +3,17 @@ import React, { useState } from 'react'
 import AddContactPopup from './popup';
 
 export default function Profile() {
-  const { user } = useUserContext()
+  const { user, setUser } = useUserContext()
   const [showPopup, setShowPopup] = useState(false);
+
+  const setContacts = (contact: any) => {
+    let contacts = user.savedContacts;
+    setUser({ ...user, savedContacts: [...contacts, contact] })
+  }
   return (
     <div>
       {
-        showPopup && <AddContactPopup close={() => setShowPopup(false)} />
+        showPopup && <AddContactPopup close={() => setShowPopup(false)} setContacts={setContacts} />
       }
       <div className='rounded-circle mx-auto mt-5' style={{
         width: '150px', height: '150px', backgroundImage: 'url(https://images.unsplash.com/photo-1679601744526-027152f956f8?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)', backgroundSize: 'cover',

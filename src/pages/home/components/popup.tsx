@@ -3,7 +3,7 @@ import "../home.css"
 import axios from 'axios'
 import Error from '@/components/error'
 
-const AddContactPopup = ({ close }: { close: Function }) => {
+const AddContactPopup = ({ close, setContacts }: { close: Function, setContacts: Function }) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [error, setError] = useState<string>()
@@ -11,10 +11,11 @@ const AddContactPopup = ({ close }: { close: Function }) => {
     const handleSubmit = async (e: any) => {
         e.preventDefault()
         try {
-            await axios.post('/api/contact/create', {
+            let res = await axios.post('/api/contact/create', {
                 name,
                 email
             })
+            setContacts(res.data)
             close()
         } catch (error) {
             setError('Something went wrong')
