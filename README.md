@@ -17,6 +17,7 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 There are multiple routes for different pages created in project
+
 sign up /auth/signup                                      
 
 sign in /auth/signin
