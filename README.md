@@ -1,6 +1,6 @@
 ## **Chat Web App Documentation**
 
-Welcome to the documentation for our Chat Web App! This web application is built using Next.js and provides a real-time chat experience with several features, including JWT token sign-in, one-to-one chatting, group chats, and support for sending and receiving images within chat messages.
+#### Welcome to the documentation for our Chat Web App! This web application is built using Next.js and provides a real-time chat experience with several features, including JWT token sign-in, one-to-one chatting, group chats, and support for sending and receiving images within chat messages.
 ---
 
 ### **1. Getting Started**
