@@ -6,7 +6,7 @@
 ### **1. Getting Started**
 
 ### Prerequisites
-
+ 
 Before running the Chat Web App, ensure you have the following installed:
 
 - [Node.js](https://nodejs.org/) 
