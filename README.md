@@ -9,7 +9,7 @@
 
 Before running the Chat Web App, ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/)
+- [Node.js](https://nodejs.org/) 
 - [npm](https://www.npmjs.com/)
 
 ### Installation
